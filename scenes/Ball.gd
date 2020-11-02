@@ -13,6 +13,7 @@ var collision_calculated_by_other_ball := false
 signal ball_in_hole(ball_number)
 
 onready var velocityLine2D = $VelocityLine2D
+onready var trajectoryLine2D = $TrajectoryLine2D
 
 func _ready():
 	$Sprite.texture = load("res://assets/sprites/ball_%d.png" % [ball_number])
@@ -21,17 +22,25 @@ func _ready():
 func _input(event):
 	if is_white_ball():
 		if event is InputEventMouseButton:
-			if event.button_index == BUTTON_LEFT and event.pressed:
+			if(!dragging && event.pressed && event.position.distance_to(global_position) < 30 ):
 				dragging = true
-			else:
+			elif(dragging && !event.pressed):
 				velocity = (global_position - event.position) * hit_force
 				dragging = false
 
 func _process(delta):
-	reset_velocity_line()
+	clear_line_points(velocityLine2D)
+	clear_line_points(trajectoryLine2D)
 	if(dragging):
+		var mouse_position = get_viewport().get_mouse_position()
 		velocityLine2D.add_point(global_position)
-		velocityLine2D.add_point(get_viewport().get_mouse_position())
+		velocityLine2D.add_point(mouse_position)
+		if(GameOptions.show_trajectory):
+			clear_line_points(trajectoryLine2D)
+			trajectoryLine2D.add_point(global_position)
+			var r = global_position - mouse_position
+			trajectoryLine2D.add_point(global_position + r * 2)
+
 
 func _physics_process(delta):
 	acceleration = - velocity * drag
@@ -84,10 +93,10 @@ func _area_entered(other):
 			collision_calculated_by_other_ball = false
 		
 
-func reset_velocity_line():
-	velocityLine2D.global_position = Vector2.ZERO
-	velocityLine2D.global_rotation = 0
-	velocityLine2D.clear_points()
+func clear_line_points(line):
+	line.global_position = Vector2.ZERO
+	line.global_rotation = 0
+	line.clear_points()
 
 func is_white_ball():
 	return (ball_number == 16)

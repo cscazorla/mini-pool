@@ -10,6 +10,7 @@ font_data = ExtResource( 1 )
 margin_top = 29.0
 margin_right = 224.0
 margin_bottom = 69.0
+focus_mode = 0
 custom_fonts/font = SubResource( 1 )
 text = "Show trajectory?"
 script = ExtResource( 2 )

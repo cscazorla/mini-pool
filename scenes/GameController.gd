@@ -15,6 +15,7 @@ func _ready():
 		ball.connect("ball_in_hole", self, "_ball_in_hole")
 
 func _ball_in_hole(ball_number):
+	get_node("Hud/HBoxContainer/BallRect%d" % [ball_number]).modulate.a = 1 
 	score += 10
 	update_score()
 

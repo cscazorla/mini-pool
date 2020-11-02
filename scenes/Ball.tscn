@@ -23,3 +23,8 @@ texture = ExtResource( 1 )
 points = PoolVector2Array( 0, 0, 0, 0 )
 width = 2.0
 default_color = Color( 0.960784, 0.0627451, 0.0627451, 1 )
+
+[node name="TrajectoryLine2D" type="Line2D" parent="."]
+points = PoolVector2Array( 0, 0, 0, 0 )
+width = 2.0
+default_color = Color( 0.462745, 0.462745, 0.478431, 1 )
