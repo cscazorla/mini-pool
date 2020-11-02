@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/sprites/table.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Hole.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 90.708, 184.421 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 186.032, 24.9583 )
+
+[node name="Table" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 384.403, 198.881, 568.315 ],
+"_edit_vertical_guides_": [ 512.06, 104.445, 474.288, 538.296, 913.508 ]
+}
+
+[node name="TableSprite" type="Sprite" parent="."]
+position = Vector2( 512, 384 )
+scale = Vector2( 0.22, 0.22 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LeftWall" parent="." instance=ExtResource( 2 )]
+wall_direction = Vector2( 0, 1 )
+
+[node name="CollisionShape2D" parent="LeftWall" index="0"]
+position = Vector2( -15.0165, 382.908 )
+shape = SubResource( 1 )
+
+[node name="RightWall" parent="." instance=ExtResource( 2 )]
+wall_direction = Vector2( 0, 1 )
+
+[node name="CollisionShape2D" parent="RightWall" index="0"]
+position = Vector2( 1039.04, 381.849 )
+shape = SubResource( 1 )
+
+[node name="LeftTopWall" parent="." instance=ExtResource( 2 )]
+wall_direction = Vector2( 1, 0 )
+
+[node name="CollisionShape2D" parent="LeftTopWall" index="0"]
+position = Vector2( 289.989, 140.71 )
+shape = SubResource( 2 )
+
+[node name="RightTopWall" parent="." instance=ExtResource( 2 )]
+wall_direction = Vector2( 1, 0 )
+
+[node name="CollisionShape2D" parent="RightTopWall" index="0"]
+position = Vector2( 725.989, 140.71 )
+shape = SubResource( 2 )
+
+[node name="LeftBottomWall" parent="." instance=ExtResource( 2 )]
+wall_direction = Vector2( 1, 0 )
+
+[node name="CollisionShape2D" parent="LeftBottomWall" index="0"]
+position = Vector2( 289.989, 626.71 )
+shape = SubResource( 2 )
+
+[node name="RightBottomWall" parent="." instance=ExtResource( 2 )]
+wall_direction = Vector2( 1, 0 )
+
+[node name="CollisionShape2D" parent="RightBottomWall" index="0"]
+position = Vector2( 725.989, 626.71 )
+shape = SubResource( 2 )
+
+[node name="TopLeftHole" parent="." instance=ExtResource( 3 )]
+position = Vector2( 58.368, 152.655 )
+
+[node name="TopHole" parent="." instance=ExtResource( 3 )]
+position = Vector2( 506.368, 140.655 )
+
+[node name="TopRightHole" parent="." instance=ExtResource( 3 )]
+position = Vector2( 958.368, 152.655 )
+
+[node name="BottomLeftHole" parent="." instance=ExtResource( 3 )]
+position = Vector2( 58.368, 613.655 )
+
+[node name="BottomHole" parent="." instance=ExtResource( 3 )]
+position = Vector2( 506.368, 623.655 )
+
+[node name="BottomRightHole" parent="." instance=ExtResource( 3 )]
+position = Vector2( 958.368, 613.655 )
+
+[editable path="LeftWall"]
+
+[editable path="RightWall"]
+
+[editable path="LeftTopWall"]
+
+[editable path="RightTopWall"]
+
+[editable path="LeftBottomWall"]
+
+[editable path="RightBottomWall"]

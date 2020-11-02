@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/Table.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/GameController.gd" type="Script" id=3]
+
+[node name="GameController" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Table" parent="." instance=ExtResource( 1 )]
+position = Vector2( -2.83154, -0.943878 )
+
+[node name="WhiteBall" parent="." instance=ExtResource( 2 )]
+position = Vector2( 514.832, 400 )
+ball_number = 16
+
+[node name="Ball 1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 508.444, 197.383 )
+
+[node name="Ball 2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 513.163, 481.49 )
+ball_number = 2
+
+[node name="Ball 3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 708.546, 444.679 )
+ball_number = 3
+
+[node name="Ball 4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 705.714, 328.582 )
+ball_number = 4
