@@ -54,7 +54,7 @@ func _physics_process(delta):
 
 func _area_entered(other):
 	if(other.is_in_group("walls")):
-		velocity = velocity.reflect(other.wall_direction)
+		velocity = velocity.bounce(other.wall_normal.normalized())
 	
 	if(other.is_in_group("holes")):
 		emit_signal("ball_in_hole", self)

@@ -1,14 +1,27 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/sprites/table.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Hole.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Corner.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 90.708, 184.421 )
+extents = Vector2( 19.7981, 186.795 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 186.032, 24.9583 )
+extents = Vector2( 18.6993, 183.928 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 184.418, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 188.279, 10 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 185.149, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 188.387, 10 )
 
 [node name="Table" type="Node2D"]
 __meta__ = {
@@ -24,74 +37,188 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="LeftWall" parent="." instance=ExtResource( 2 )]
-wall_direction = Vector2( 0, 1 )
+[node name="Holes" type="Node" parent="."]
 
-[node name="CollisionShape2D" parent="LeftWall" index="0"]
-position = Vector2( -15.0165, 382.908 )
-shape = SubResource( 1 )
-
-[node name="RightWall" parent="." instance=ExtResource( 2 )]
-wall_direction = Vector2( 0, 1 )
-
-[node name="CollisionShape2D" parent="RightWall" index="0"]
-position = Vector2( 1039.04, 381.849 )
-shape = SubResource( 1 )
-
-[node name="LeftTopWall" parent="." instance=ExtResource( 2 )]
-wall_direction = Vector2( 1, 0 )
-
-[node name="CollisionShape2D" parent="LeftTopWall" index="0"]
-position = Vector2( 289.989, 140.71 )
-shape = SubResource( 2 )
-
-[node name="RightTopWall" parent="." instance=ExtResource( 2 )]
-wall_direction = Vector2( 1, 0 )
-
-[node name="CollisionShape2D" parent="RightTopWall" index="0"]
-position = Vector2( 725.989, 140.71 )
-shape = SubResource( 2 )
-
-[node name="LeftBottomWall" parent="." instance=ExtResource( 2 )]
-wall_direction = Vector2( 1, 0 )
-
-[node name="CollisionShape2D" parent="LeftBottomWall" index="0"]
-position = Vector2( 289.989, 626.71 )
-shape = SubResource( 2 )
-
-[node name="RightBottomWall" parent="." instance=ExtResource( 2 )]
-wall_direction = Vector2( 1, 0 )
-
-[node name="CollisionShape2D" parent="RightBottomWall" index="0"]
-position = Vector2( 725.989, 626.71 )
-shape = SubResource( 2 )
-
-[node name="TopLeftHole" parent="." instance=ExtResource( 3 )]
+[node name="TopLeftHole" parent="Holes" instance=ExtResource( 3 )]
 position = Vector2( 58.368, 152.655 )
 
-[node name="TopHole" parent="." instance=ExtResource( 3 )]
+[node name="TopHole" parent="Holes" instance=ExtResource( 3 )]
 position = Vector2( 506.368, 140.655 )
 
-[node name="TopRightHole" parent="." instance=ExtResource( 3 )]
+[node name="TopRightHole" parent="Holes" instance=ExtResource( 3 )]
 position = Vector2( 958.368, 152.655 )
 
-[node name="BottomLeftHole" parent="." instance=ExtResource( 3 )]
+[node name="BottomLeftHole" parent="Holes" instance=ExtResource( 3 )]
 position = Vector2( 58.368, 613.655 )
 
-[node name="BottomHole" parent="." instance=ExtResource( 3 )]
+[node name="BottomHole" parent="Holes" instance=ExtResource( 3 )]
 position = Vector2( 506.368, 623.655 )
 
-[node name="BottomRightHole" parent="." instance=ExtResource( 3 )]
+[node name="BottomRightHole" parent="Holes" instance=ExtResource( 3 )]
 position = Vector2( 958.368, 613.655 )
 
-[editable path="LeftWall"]
+[node name="Walls" type="Node" parent="."]
 
-[editable path="RightWall"]
+[node name="LeftWall" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 56, 384 )
+wall_normal = Vector2( 1, 0 )
 
-[editable path="LeftTopWall"]
+[node name="CollisionShape2D" parent="Walls/LeftWall" index="0"]
+shape = SubResource( 1 )
 
-[editable path="RightTopWall"]
+[node name="RightWall" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 966.908, 384.252 )
+wall_normal = Vector2( -1, 0 )
 
-[editable path="LeftBottomWall"]
+[node name="CollisionShape2D" parent="Walls/RightWall" index="0"]
+shape = SubResource( 2 )
 
-[editable path="RightBottomWall"]
+[node name="LeftTopWall" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 289.183, 155.411 )
+wall_normal = Vector2( 0, 1 )
+
+[node name="CollisionShape2D" parent="Walls/LeftTopWall" index="0"]
+shape = SubResource( 3 )
+
+[node name="RightTopWall" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 725.177, 155.824 )
+wall_normal = Vector2( 0, 1 )
+
+[node name="CollisionShape2D" parent="Walls/RightTopWall" index="0"]
+shape = SubResource( 4 )
+
+[node name="LeftBottomWall" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 289.321, 612.026 )
+wall_normal = Vector2( 0, -1 )
+
+[node name="CollisionShape2D" parent="Walls/LeftBottomWall" index="0"]
+shape = SubResource( 5 )
+
+[node name="RightBottomWall" parent="Walls" instance=ExtResource( 2 )]
+position = Vector2( 725.605, 611.799 )
+wall_normal = Vector2( 0, -1 )
+
+[node name="CollisionShape2D" parent="Walls/RightBottomWall" index="0"]
+shape = SubResource( 6 )
+
+[node name="Corners" type="Node" parent="."]
+
+[node name="TopLeftTop" parent="Corners" instance=ExtResource( 4 )]
+position = Vector2( 98.3838, 154.353 )
+wall_normal = Vector2( -1, 1 )
+
+[node name="CollisionPolygon2D" parent="Corners/TopLeftTop" index="0"]
+polygon = PoolVector2Array( -12.9442, -6.01012, 5.24303, 11.8434, 5.40989, -6.17697 )
+
+[node name="TopLeftBottom" parent="Corners" instance=ExtResource( 4 )]
+position = Vector2( 67.2706, 191.352 )
+wall_normal = Vector2( 1, -1 )
+
+[node name="CollisionPolygon2D" parent="Corners/TopLeftBottom" index="0"]
+polygon = PoolVector2Array( -9.10584, -9.99847, 6.35384, 5.31256, -8.95719, 5.60986 )
+
+[node name="CenterTopLeft" parent="Corners" instance=ExtResource( 4 )]
+position = Vector2( 482.384, 154.353 )
+wall_normal = Vector2( 1, 1 )
+
+[node name="CollisionPolygon2D" parent="Corners/CenterTopLeft" index="0"]
+polygon = PoolVector2Array( -7.42758, -6.27934, -7.42758, 11.3099, -0.00296021, -6.27934 )
+
+[node name="CenterTopRight" parent="Corners" instance=ExtResource( 4 )]
+position = Vector2( 538.271, 157.352 )
+wall_normal = Vector2( -1, 1 )
+
+[node name="CollisionPolygon2D" parent="Corners/CenterTopRight" index="0"]
+polygon = PoolVector2Array( -8.42529, -9.36716, -1.00067, 8.39891, -1.26581, -9.54393 )
+
+[node name="CenterBottomLeft" parent="Corners" instance=ExtResource( 4 )]
+position = Vector2( 477.384, 609.353 )
+wall_normal = Vector2( 1, -1 )
+
+[node name="CollisionPolygon2D" parent="Corners/CenterBottomLeft" index="0"]
+polygon = PoolVector2Array( -2.03333, -7.02832, -2.13254, 10.6315, 5.55643, 10.7803 )
+
+[node name="CenterBottomRight" parent="Corners" instance=ExtResource( 4 )]
+position = Vector2( 539.271, 614.352 )
+wall_normal = Vector2( -1, -1 )
+
+[node name="CollisionPolygon2D" parent="Corners/CenterBottomRight" index="0"]
+polygon = PoolVector2Array( -2.02063, -11.3521, -2.02374, 5.6911, -8.95719, 5.60986 )
+
+[node name="TopRightTop" parent="Corners" instance=ExtResource( 4 )]
+position = Vector2( 926.384, 155.353 )
+wall_normal = Vector2( 1, 1 )
+
+[node name="CollisionPolygon2D" parent="Corners/TopRightTop" index="0"]
+polygon = PoolVector2Array( -12.7807, -7.85524, -12.3839, 10.5983, 5.276, -7.06154 )
+
+[node name="TopRightBottom" parent="Corners" instance=ExtResource( 4 )]
+position = Vector2( 955.271, 190.352 )
+wall_normal = Vector2( -1, -1 )
+
+[node name="CollisionPolygon2D" parent="Corners/TopRightBottom" index="0"]
+polygon = PoolVector2Array( 10.3198, -8.72552, 10.7596, 8.36459, -6.78119, 8.36459 )
+
+[node name="BottomLeftTop" parent="Corners" instance=ExtResource( 4 )]
+position = Vector2( 64.4043, 575.321 )
+wall_normal = Vector2( 1, 1 )
+
+[node name="CollisionPolygon2D" parent="Corners/BottomLeftTop" index="0"]
+polygon = PoolVector2Array( -6.46784, -4.26794, -6.3354, 11.4916, 8.49708, -4.40033 )
+
+[node name="BottomLeftBottom" parent="Corners" instance=ExtResource( 4 )]
+position = Vector2( 100.306, 609.488 )
+wall_normal = Vector2( -1, -1 )
+
+[node name="CollisionPolygon2D" parent="Corners/BottomLeftBottom" index="0"]
+polygon = PoolVector2Array( 3.85642, -7.32385, 3.85642, 10.094, -14.1233, 10.2813 )
+
+[node name="BottomRightTop" parent="Corners" instance=ExtResource( 4 )]
+position = Vector2( 961.404, 574.321 )
+wall_normal = Vector2( -1, 1 )
+
+[node name="CollisionPolygon2D" parent="Corners/BottomRightTop" index="0"]
+polygon = PoolVector2Array( -12.959, -6.05701, 4.45264, 12.5948, 4.36115, -6.40485 )
+
+[node name="BottomRightBottom" parent="Corners" instance=ExtResource( 4 )]
+position = Vector2( 923.306, 610.488 )
+wall_normal = Vector2( 1, -1 )
+
+[node name="CollisionPolygon2D" parent="Corners/BottomRightBottom" index="0"]
+polygon = PoolVector2Array( 8.53021, 9.62811, -9.06921, 9.51526, -9.30518, -7.71045 )
+
+[editable path="Walls/LeftWall"]
+
+[editable path="Walls/RightWall"]
+
+[editable path="Walls/LeftTopWall"]
+
+[editable path="Walls/RightTopWall"]
+
+[editable path="Walls/LeftBottomWall"]
+
+[editable path="Walls/RightBottomWall"]
+
+[editable path="Corners/TopLeftTop"]
+
+[editable path="Corners/TopLeftBottom"]
+
+[editable path="Corners/CenterTopLeft"]
+
+[editable path="Corners/CenterTopRight"]
+
+[editable path="Corners/CenterBottomLeft"]
+
+[editable path="Corners/CenterBottomRight"]
+
+[editable path="Corners/TopRightTop"]
+
+[editable path="Corners/TopRightBottom"]
+
+[editable path="Corners/BottomLeftTop"]
+
+[editable path="Corners/BottomLeftBottom"]
+
+[editable path="Corners/BottomRightTop"]
+
+[editable path="Corners/BottomRightBottom"]
