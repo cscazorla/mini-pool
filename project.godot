@@ -19,6 +19,10 @@ config/name="mini-pool"
 run/main_scene="res://scenes/GameController.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameOptions="*res://scenes/GameOptions.gd"
+
 [display]
 
 window/size/height=768
