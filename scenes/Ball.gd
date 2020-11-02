@@ -10,7 +10,7 @@ var hit_force = 3
 var sprite_radius = 15
 var collision_calculated_by_other_ball := false
 
-signal ball_in_hole(ball_number)
+signal ball_in_hole(ball)
 
 onready var velocityLine2D = $VelocityLine2D
 onready var trajectoryLine2D = $TrajectoryLine2D
@@ -57,8 +57,7 @@ func _area_entered(other):
 		velocity = velocity.reflect(other.wall_direction)
 	
 	if(other.is_in_group("holes")):
-		queue_free()
-		emit_signal("ball_in_hole", ball_number)
+		emit_signal("ball_in_hole", self)
 	
 	if(other.is_in_group("balls")):
 		if(!collision_calculated_by_other_ball):

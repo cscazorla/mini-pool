@@ -15,8 +15,8 @@ script = ExtResource( 3 )
 position = Vector2( -2.83154, -0.943878 )
 
 [node name="WhiteBall" parent="." instance=ExtResource( 2 )]
-position = Vector2( 748.832, 400 )
+position = Vector2( 750, 400 )
 ball_number = 16
 
 [node name="TriangleBalls" parent="." instance=ExtResource( 5 )]
-position = Vector2( 260, 400 )
+position = Vector2( 300, 400 )
