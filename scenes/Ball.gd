@@ -22,6 +22,8 @@ func _ready():
 func _input(event):
 	if is_white_ball():
 		if event is InputEventMouseButton:
+			if(event.button_index == BUTTON_RIGHT && dragging):
+				dragging = false
 			if(!dragging && event.pressed && event.position.distance_to(global_position) < 30 ):
 				dragging = true
 			elif(dragging && !event.pressed):
