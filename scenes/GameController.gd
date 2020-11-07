@@ -9,6 +9,8 @@ var balls_alive
 
 func _ready():
 	state = IDLE
+	if(GameOptions.show_trajectory):
+		$Hud/ShowTrajectoryButton.pressed = true
 	update_score()
 	
 	var balls = get_tree().get_nodes_in_group("balls")
