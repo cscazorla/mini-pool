@@ -9,7 +9,7 @@
 extents = Vector2( 19.7981, 186.795 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 18.6993, 183.928 )
+extents = Vector2( 18.699, 186 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 184.418, 10 )
@@ -40,22 +40,22 @@ __meta__ = {
 [node name="Holes" type="Node" parent="."]
 
 [node name="TopLeftHole" parent="Holes" instance=ExtResource( 3 )]
-position = Vector2( 58.368, 152.655 )
+position = Vector2( 36.368, 131.655 )
 
 [node name="TopHole" parent="Holes" instance=ExtResource( 3 )]
-position = Vector2( 506.368, 140.655 )
+position = Vector2( 506.368, 104.655 )
 
 [node name="TopRightHole" parent="Holes" instance=ExtResource( 3 )]
-position = Vector2( 958.368, 152.655 )
+position = Vector2( 977.368, 131.655 )
 
 [node name="BottomLeftHole" parent="Holes" instance=ExtResource( 3 )]
-position = Vector2( 58.368, 613.655 )
+position = Vector2( 37.368, 637.655 )
 
 [node name="BottomHole" parent="Holes" instance=ExtResource( 3 )]
-position = Vector2( 506.368, 623.655 )
+position = Vector2( 506.368, 662.655 )
 
 [node name="BottomRightHole" parent="Holes" instance=ExtResource( 3 )]
-position = Vector2( 958.368, 613.655 )
+position = Vector2( 981.368, 637.655 )
 
 [node name="Walls" type="Node" parent="."]
 
@@ -178,7 +178,7 @@ position = Vector2( 961.404, 574.321 )
 wall_normal = Vector2( -1, 1 )
 
 [node name="CollisionPolygon2D" parent="Corners/BottomRightTop" index="0"]
-polygon = PoolVector2Array( -12.959, -6.05701, 4.45264, 12.5948, 4.36115, -6.40485 )
+polygon = PoolVector2Array( -10.1839, -3.17456, 4.47925, 12.5397, 4.32159, -2.96429 )
 
 [node name="BottomRightBottom" parent="Corners" instance=ExtResource( 4 )]
 position = Vector2( 923.306, 610.488 )

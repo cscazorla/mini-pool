@@ -12,7 +12,6 @@ script = ExtResource( 3 )
 [node name="Hud" parent="." instance=ExtResource( 4 )]
 
 [node name="Table" parent="." instance=ExtResource( 1 )]
-position = Vector2( -2.83154, -0.943878 )
 
 [node name="WhiteBall" parent="." instance=ExtResource( 2 )]
 position = Vector2( 750, 400 )
