@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/sprites/table.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Hole.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Corner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/sprites/light.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 19.7981, 186.795 )
@@ -186,6 +187,13 @@ wall_normal = Vector2( 1, -1 )
 
 [node name="CollisionPolygon2D" parent="Corners/BottomRightBottom" index="0"]
 polygon = PoolVector2Array( 8.53021, 9.62811, -9.06921, 9.51526, -9.30518, -7.71045 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 514.104, 384.521 )
+texture = ExtResource( 5 )
+energy = 0.19
+shadow_enabled = true
+shadow_color = Color( 0, 0.51, 0.17, 0 )
 
 [editable path="Walls/LeftWall"]
 
